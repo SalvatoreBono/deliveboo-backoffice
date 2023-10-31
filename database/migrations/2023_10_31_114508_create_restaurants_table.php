@@ -13,12 +13,14 @@ return new class extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
-            $table->string("email");
+            $table->unsignedBigInteger("user_id");
+            $table->string("email")->unique();
             $table->string("phone");
             $table->string("activity_name");
             $table->string("img");
             $table->string("address");
             $table->timestamps();
+            $table->foreign("user_id")->references("id")->on("users");
         });
     }
 
