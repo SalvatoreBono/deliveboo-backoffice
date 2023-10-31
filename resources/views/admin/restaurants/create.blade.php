@@ -63,6 +63,16 @@
                     <div class="invalid_feedback">{{ $message }}</div>
                 @enderror
             </div>
+            <div class="d-flex gap-3">
+                @foreach ($types as $type)
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" name="type[]" role="switch"
+                            id="{{ $type->id }}" value="{{ $type->id }}">
+                        <label class="form-check-label" for="{{ $type->id }}">{{ $type->name }}</label>
+                    </div>
+                @endforeach
+
+            </div>
             <button class="btn btn-primary">Create Restaurant</button>
         </form>
     </div>
