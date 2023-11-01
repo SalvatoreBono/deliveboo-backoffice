@@ -2,7 +2,7 @@
 @section('title', 'Show')
 @section('content')
     <div class="card" style="width: 18rem;">
-        <img src=" {{ asset('storage/' . $restaurant->img) }} " class="card-img-top" alt="...">
+        <img src=" {{ asset('storage/img/' . $restaurant->img) }} " class="card-img-top" alt="...">
         <div class="card-body">
             <h5 class="card-title">{{ $restaurant->activity_name }}</h5>
             <div class="card-text">{{ $restaurant->address }}</div>

@@ -36,7 +36,7 @@ class RestaurantController extends Controller
         $data = $request->validated();
 
         //Il campo del form Img viene messo nello storage 
-        $data["img"] = Storage::put("restaurantsImages", $data["img"]);
+        $data["img"] = Storage::put("", $data["img"]);
         //Prende lo user che ha fatto la request
         $user = $request->user();
 

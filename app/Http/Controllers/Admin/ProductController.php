@@ -29,7 +29,7 @@ class ProductController extends Controller
 
         $data['restaurant_id'] = $restaurantId; // Assegna l'ID del ristorante
         
-        $data["img"] = Storage::put("productsImages", $data["img"]);
+        $data["img"] = Storage::put("", $data["img"]);
 
         $product = new Product();
         $product->fill($data);
@@ -39,7 +39,8 @@ class ProductController extends Controller
 
     public function index()
     {
-        $products = Product::all();
+        $restaurantId = Auth::user()->restaurant->id;
+        $products = Product::where("restaurant_id", $restaurantId)->get();
         return view("admin.products.index", compact("products"));
     }
 
