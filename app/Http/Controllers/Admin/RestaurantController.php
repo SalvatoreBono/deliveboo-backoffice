@@ -16,7 +16,6 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
     }
 
     /**
@@ -53,15 +52,16 @@ class RestaurantController extends Controller
             //associamento tra restaurant e il type
             $restaurant->types()->attach($data["types"]);
         }
-        return redirect()->route("admin.restaurants.index");
+        return redirect()->route("admin.restaurants.show", $restaurant->id);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $restaurant = Restaurant::where("id", $id)->firstOrFail();
+        return view("admin.restaurants.show", compact("restaurant"));
     }
 
     /**
