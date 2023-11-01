@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Restaurant;
+use App\Models\Type;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -24,7 +25,14 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Alla Cucina delle Langhe",
                 "img" => "Alla-Cucina-delle-Langhe.webp",
-                "address" => "Via Milano, 123, 20100, Milano"
+                "address" => "Via Milano, 123, 20100, Milano",
+                "types" => [
+                    "Pizza",
+                    "BBQ",
+                    "Pasta",
+                    "Insalate",
+                    "Dolci"
+                ]
             ]
         ],
         [
@@ -38,7 +46,11 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Antico Vinaio",
                 "img" => "antico-vinaio.webp",
-                "address" => "Via Milano, 45, 20100, Milano"
+                "address" => "Via Milano, 45, 20100, Milano",
+                "types" => [
+                    "Panini",
+                    "Pizza"
+                ]
             ]
         ],
         [
@@ -52,7 +64,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Bomaki",
                 "img" => "Bomaki.webp",
-                "address" => "Corso Vittorio Emanuele, 67, 20100, Milano"
+                "address" => "Corso Vittorio Emanuele, 67, 20100, Milano",
+                "types" => [
+                    "Sushi",
+                ]
             ]
         ],
         [
@@ -66,7 +81,11 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Burgers",
                 "img" => "Bun-Burgers.webp",
-                "address" => "Piazza del Popolo, 9, 20100, Milano"
+                "address" => "Piazza del Popolo, 9, 20100, Milano",
+                "types" => [
+                    "Hamburger",
+                    "Frittura"
+                ]
             ]
         ],
         [
@@ -80,7 +99,15 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Kotubia Food",
                 "img" => "Kotubia-Food.webp",
-                "address" => "Chemistry Avenue, 6, 20100, Milano"
+                "address" => "Chemistry Avenue, 6, 20100, Milano",
+                "types" => [
+                    "Pizza",
+                    "BBQ",
+                    "Pesce",
+                    "Pasta",
+                    "Insalate",
+                    "Dolci"
+                ]
             ]
         ],
         [
@@ -94,7 +121,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Clorofilla",
                 "img" => "Clorofilla.webp",
-                "address" => "Via Milano, 30, 20100, Milano"
+                "address" => "Via Milano, 30, 20100, Milano",
+                "types" => [
+                    "Insalate",
+                ]
             ]
         ],
         [
@@ -108,7 +138,11 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Dongiò",
                 "img" => "Dongiò.webp",
-                "address" => "Via Milano, 25, 20100, Milano"
+                "address" => "Via Milano, 25, 20100, Milano",
+                "types" => [
+                    "Panini",
+                    "Hamburger"
+                ]
             ]
         ],
         [
@@ -122,7 +156,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "This is not a sushibar",
                 "img" => "This-is-not-a-sushibar.webp",
-                "address" => "Chemistry Avenue, 6, 20100, Milano"
+                "address" => "Chemistry Avenue, 6, 20100, Milano",
+                "types" => [
+                    "Sushi"
+                ]
             ]
         ],
         [
@@ -136,7 +173,12 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Fra Diavolo",
                 "img" => "Fra-Diavolo.webp",
-                "address" => "Piazza delle Rose, 10, 20100, Milano"
+                "address" => "Piazza delle Rose, 10, 20100, Milano",
+                "types" => [
+                    "Pizze",
+                    "Panini",
+                    "Frittura"
+                ]
             ]
         ],
         [
@@ -150,7 +192,11 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Giragirarrosto by Delivery Valley",
                 "img" => "Giragirarrosto-by-Delivery-Valley.webp",
-                "address" => "Corso Italia, 33, 20100, Milano"
+                "address" => "Corso Italia, 33, 20100, Milano",
+                "types" => [
+                    "Frittura",
+                    "Panini"
+                ]
             ]
         ],
         [
@@ -164,7 +210,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Insalateria Milano",
                 "img" => "Insalateria-Milano.webp",
-                "address" => "Ginza Street, 5, 20100, Milano"
+                "address" => "Ginza Street, 5, 20100, Milano",
+                "types" => [
+                    "Insalate"
+                ]
             ]
         ],
         [
@@ -178,7 +227,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "La Pescheria Benito",
                 "img" => "La-Pescheria-Benito.webp",
-                "address" => "Strada delle Cime, 7, 20100, Milano"
+                "address" => "Strada delle Cime, 7, 20100, Milano",
+                "types" => [
+                    "Pesce"
+                ]
             ]
         ],
         [
@@ -192,7 +244,11 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Marcellino Il Sarto Del Panino",
                 "img" => "Marcellino-Il-Sarto-Del-Panino.webp",
-                "address" => "Viale Adriatico, 15, 20100, Milano"
+                "address" => "Viale Adriatico, 15, 20100, Milano",
+                "types" => [
+                    "Panini",
+                    "Fritture"
+                ]
             ]
         ],
         [
@@ -206,7 +262,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "MOMO Fusion Restaurant",
                 "img" => "MOMO-Fusion-Restaurant.webp",
-                "address" => "Via Veneto, 22, 20100, Milano"
+                "address" => "Via Veneto, 22, 20100, Milano",
+                "types" => [
+                    "Sushi"
+                ]
             ]
         ],
         [
@@ -220,7 +279,11 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Panino & Co",
                 "img" => "Panino-&-Co.webp",
-                "address" => "Corso Buenos Aires, 55, 20100, Milano"
+                "address" => "Corso Buenos Aires, 55, 20100, Milano",
+                "types" => [
+                    "Panini",
+                    "Hamburger"
+                ]
             ]
         ],
         [
@@ -234,7 +297,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Pasticceria Viscontea",
                 "img" => "Pasticceria-Viscontea.webp",
-                "address" => "Via delle Spezie, 18, 20100, Milano"
+                "address" => "Via delle Spezie, 18, 20100, Milano",
+                "types" => [
+                    "Dolci"
+                ]
             ]
         ],
         [
@@ -248,7 +314,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Poke House",
                 "img" => "poke-house.webp",
-                "address" => "Rue de Provence, 30, 20100, Milano"
+                "address" => "Rue de Provence, 30, 20100, Milano",
+                "types" => [
+                    "Sushi"
+                ]
             ]
         ],
         [
@@ -262,7 +331,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Premiata Cremeria Rossi",
                 "img" => "Premiata-Cremeria-Rossi.webp",
-                "address" => "Hickory Lane, 7, 20100, Milano"
+                "address" => "Hickory Lane, 7, 20100, Milano",
+                "types" => [
+                    "Dolci"
+                ]
             ]
         ],
         [
@@ -276,7 +348,11 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "San Gottardo Pizza Kebap",
                 "img" => "San-Gottardo-Pizza-Kebap.webp",
-                "address" => "Silom Road, 12, 20100, Milano"
+                "address" => "Silom Road, 12, 20100, Milano",
+                "types" => [
+                    "Pizza",
+                    "Panini"
+                ]
             ]
         ],
         [
@@ -290,7 +366,10 @@ class UsersTableSeeder extends Seeder
                 "phone" => "3247526001",
                 "activity_name" => "Tapas De Pescado",
                 "img" => "Tapas-De-Pescado.webp",
-                "address" => "Bleecker Street, 90, 20100, Milano"
+                "address" => "Bleecker Street, 90, 20100, Milano",
+                "types" => [
+                    "Pesce"
+                ]
             ]
         ],
     ];
@@ -322,6 +401,11 @@ class UsersTableSeeder extends Seeder
             $newRestaurant->user_id = $newUser->id;
             // Salvare il ristorante associato all'utente
             $newRestaurant->save();
+
+            // Associare i tipi di ristorante al ristorante
+            $restaurantTypes = $restaurantData["types"];
+            // pluck viene utilizzato per ottenere l'ID del tipo di ristorante dalla tabella types basato sul nome del tipo
+            $newRestaurant->types()->attach(Type::whereIn('name', $restaurantTypes)->pluck('id'));
         }
     }
 }
