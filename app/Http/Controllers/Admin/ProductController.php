@@ -23,7 +23,10 @@ class ProductController extends Controller
     {
         $data = $request->validated();
         $data["img"] = Storage::put("productsImages", $data["img"]);
-        Product::create($data);
+
+        $products = new Product();
+        $products->fill($data);
+        $products->save();
         return redirect()->route("admin.restaurants.index");
     }
 
