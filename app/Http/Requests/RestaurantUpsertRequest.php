@@ -29,6 +29,7 @@ class RestaurantUpsertRequest extends FormRequest
             "activity_name" => "required|string",
             "img" => "required|image|file",
             "address" => "required|string",
+            "types" => "required",
         ];
     }
 }

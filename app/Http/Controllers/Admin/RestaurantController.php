@@ -43,9 +43,16 @@ class RestaurantController extends Controller
 
         $restaurant = new Restaurant($data);
 
+
+
         //collega il ristorante appena creato all'utente autenticato.
         $user->restaurant()->save($restaurant);
 
+        //se nel form è presente il valore data types  
+        if (key_exists("types", $data)) {
+            //associamento tra restaurant e il type
+            $restaurant->types()->attach($data["types"]);
+        }
         return redirect()->route("admin.restaurants.index");
     }
 

@@ -65,13 +65,15 @@
             </div>
             <div class="d-flex gap-3">
                 @foreach ($types as $type)
-                    <div class="form-check form-switch">
-                        <input class="form-check-input" type="checkbox" name="type[]" role="switch"
+                    <div class="form-check form-switch  @error('types') is-invalid @enderror">
+                        <input class="form-check-input" type="checkbox" name="types[]" role="switch"
                             id="{{ $type->id }}" value="{{ $type->id }}">
                         <label class="form-check-label" for="{{ $type->id }}">{{ $type->name }}</label>
                     </div>
                 @endforeach
-
+                @error('types')
+                    <div class="invalid_feedback">{{ $message }}</div>
+                @enderror
             </div>
             <button class="btn btn-primary">Create Restaurant</button>
         </form>
