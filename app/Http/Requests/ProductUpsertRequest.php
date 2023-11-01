@@ -25,10 +25,8 @@ class ProductUpsertRequest extends FormRequest
             "name" => "required|string",
             "img" => "required|image|file",
             "description" => "required|string",
-            "price" => "required|decimal:2,6",
+            "price" => "required|decimal:0,6",
             "visible" => "required|boolean",
-            "restaurant_id" => "required|exists:restaurants,id",
-
         ];
     }
 }
