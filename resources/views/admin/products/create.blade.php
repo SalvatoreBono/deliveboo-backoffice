@@ -35,8 +35,7 @@
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
-                <textarea type="text" class="form-control @error('description') is-invalid @enderror"
-                    value="{{ old('description') }}" id="inputdescription" name="description"></textarea>
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description">{{ old('description') }}</textarea>
                 @error('description')
                     <div class="invalid_feedback">{{ $message }}</div>
                 @enderror
