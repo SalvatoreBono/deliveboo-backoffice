@@ -51,6 +51,10 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
+                                href="{{ route('admin.products.create') }}">{{ __('Add your products') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"
                                 href="{{ route('admin.restaurants.create') }}">{{ __('Add your restaurants') }}</a>
                         </li>
                         @if (Auth::user())

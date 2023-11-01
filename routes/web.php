@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RestaurantController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Restaurant;
@@ -32,6 +33,7 @@ Route::middleware(["auth", "verified"])
     ->name("admin.")
     ->group(function () {
         Route::resource("restaurants", RestaurantController::class);
+        Route::resource("products", ProductController::class);
     });
 
 Route::middleware('auth')->group(function () {
