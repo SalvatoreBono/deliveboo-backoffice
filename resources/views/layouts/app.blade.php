@@ -63,6 +63,10 @@
                                     href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('View your restaurant') }}</a>
                             </li>
                         @endif
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ route('admin.products.index') }}">{{ __('See all your products') }}</a>
+                        </li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -89,7 +93,7 @@
                                     <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profile') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

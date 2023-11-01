@@ -1,20 +1,74 @@
+
 @extends('layouts.app')
-@section('title', 'Edit')
+@section('title', 'Create')
 @section('content')
-    {{-- @include('names.forms.upsert',= inserimento del componente upsert --}}
-    {{-- passato come secondo argomento dell'include un array associatiovo 
-        [
-        'action' =>route('names.update', name->id),
-        'method' => 'PUT',
-        'name' => $name,
-    ]) --}}
-    {{-- 'action' => route('names.update', name->id), = specifichiamo dove vogliamo inviare i dati --}}
-    {{-- 'method' => 'PUT', = specifichiamo il metodo su come devono essere inviati i dati. Questo metodo indica che stai cercando di effettuare un aggiornamento dell'elemento associato --}}
-    {{-- 'name' => $name,= assegniamo il valore a name così da poterlo utilizzare nel value e poter visualizzare i dati da editare --}}
-    @include('admin.restaurants.forms.upsert', [
-        'action' => route('admin.restaurants.update', $restaurant->id),
-        'method' => 'PUT',
-        'restaurant' => $restaurant,
-        'btnBack' => route('admin.restaurants.show', $restaurant->id),
-    ])
+    <div class="container pt-3">
+        {{-- action="{{ $action }}"= è un segnaposto  --}}
+        <form action="{{ route('admin.products.update', $product->id) }}" class="row g-3" method="POST" enctype="multipart/form-data">
+            @csrf()
+            {{-- @method($method) = è un segnaposto --}}
+            @method('PUT')
+
+            <div class="col-12">
+                <label for="inputTitle" class="form-label">Name Product</label>
+                {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
+                {{-- , $name?->email) }} = stampare il valore di email --}}
+                {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
+                <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old("name", $product->name) }}"
+                    id="inputname" name="name">
+                @error('name')
+                    <div class="invalid_feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col-12">
+                <label for="inputTitle" class="form-label">Image Product </label>
+                {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
+                {{-- , $name?->email) }} = stampare il valore di email --}}
+                {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
+                <input type="file" class="form-control @error('img') is-invalid @enderror" value="{{ old('img') }}"
+                    id="inputimg" name="img">
+                @error('img')
+                    <div class="invalid_feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col-12">
+                <label for="inputTitle" class="form-label">Description</label>
+                {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
+                {{-- , $name?->email) }} = stampare il valore di email --}}
+                {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
+                <textarea class="form-control @error('description') is-invalid @enderror" name="description">{{ old('description', $product->description) }}</textarea>
+                @error('description')
+                    <div class="invalid_feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <div class="col-12">
+                <label for="inputTitle" class="form-label">Price</label>
+                {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
+                {{-- , $name?->email) }} = stampare il valore di email --}}
+                {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
+                <input step="0.01" type="number" class="form-control @error('price') is-invalid @enderror"
+                    value="{{ old('price', $product->price) }}" id="inputprice" name="price">
+                @error('price')
+                    <div class="invalid_feedback">{{ $message }}</div>
+                @enderror
+            </div>
+            <label class="form-check-label" for="flexRadioDefault2">
+                Visible
+            </label>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visible" id="1" value="1" {{ old('visible', $product->visible) == 1 ? 'checked' : '' }}>
+                <label class="form-check-label" for="1"> 
+                    Si
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="visible" id="0" value="0" {{ old('visible', $product->visible) == 0 ? 'checked' : '' }}>
+                <label class="form-check-label" for="0">
+                    No
+                </label>
+            </div>
+
+            <button class="btn btn-primary">Update your products</button>
+        </form>
+    </div>
 @endsection

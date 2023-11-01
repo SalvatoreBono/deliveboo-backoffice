@@ -404,7 +404,7 @@ class UsersTableSeeder extends Seeder
 
             // Associare i tipi di ristorante al ristorante
             $restaurantTypes = $restaurantData["types"];
-            // pluck viene utilizzato per ottenere l'ID del tipo di ristorante dalla tabella types basato sul nome del tipo
+            // dove Type e uguale al nome di un elemento dell'array $restaurantTypes la funzione pluck associa gli id corrispondenti
             $newRestaurant->types()->attach(Type::whereIn('name', $restaurantTypes)->pluck('id'));
         }
     }
