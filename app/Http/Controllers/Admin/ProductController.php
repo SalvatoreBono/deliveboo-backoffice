@@ -28,7 +28,7 @@ class ProductController extends Controller
         $restaurantId = Auth::user()->restaurant->id;
 
         $data['restaurant_id'] = $restaurantId; // Assegna l'ID del ristorante
-        
+
         $data["img"] = Storage::put("", $data["img"]);
 
         $product = new Product();
@@ -54,8 +54,18 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
+        //Ottiene l'ID del ristorante associato all'utente autenticato.
+        $restaurantId = Auth::user()->restaurant->id;
+
+        //Cerca il prodotto specifico con l'ID fornito nella richiesta.
         $product = Product::findOrFail($id);
-        return view("admin.products.edit", compact("product"));
+
+        //Verifica se l'ID del ristorante del prodotto coincide con l'ID del ristorante dell'utente.
+        if ($restaurantId !==  $product->restaurant_id) {
+            abort(404);
+        } else {
+            return view("admin.products.edit", compact("product"));
+        }
     }
 
     /**
@@ -70,8 +80,15 @@ class ProductController extends Controller
         $restaurantId = Auth::user()->restaurant->id;
 
         $data['restaurant_id'] = $restaurantId; // Assegna l'ID del ristorante
-        
-        $data["img"] = Storage::put("productsImages", $data["img"]);
+
+        //se data[img] ha un valore esegui
+        if (key_exists("img", $data)) {
+            // se data[img] ha un valore fai il put dell'img
+            $data["img"] = Storage::put("", $data["img"]);
+        } else {
+            //altrimenti metti l'img di prima
+            $data["img"] = $product->img;
+        }
 
         $product->update($data);
         return redirect()->route("admin.products.index");

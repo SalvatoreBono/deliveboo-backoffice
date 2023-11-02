@@ -23,9 +23,9 @@ class ProductUpsertRequest extends FormRequest
     {
         return [
             "name" => "required|string",
-            "img" => "required|image|file",
+            "img" => "nullable|image|file",
             "description" => "required|string",
-            "price" => "required|decimal:0,6",
+            "price" => "required|decimal:0,6|min:0",
             "visible" => "required|boolean",
         ];
     }

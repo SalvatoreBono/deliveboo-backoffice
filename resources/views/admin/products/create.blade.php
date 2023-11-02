@@ -9,7 +9,7 @@
             @method('POST')
 
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Name Product</label>
+                <label for="inputTitle" class="form-label">Name Product <span class="text-danger">*</span></label>
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
@@ -20,7 +20,7 @@
                 @enderror
             </div>
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Image Product </label>
+                <label for="inputTitle" class="form-label">Image Product <span class="text-danger">*</span> </label>
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
@@ -31,7 +31,7 @@
                 @enderror
             </div>
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Description</label>
+                <label for="inputTitle" class="form-label">Description <span class="text-danger">*</span></label>
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
@@ -41,7 +41,7 @@
                 @enderror
             </div>
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Price</label>
+                <label for="inputTitle" class="form-label">Price <span class="text-danger">*</span></label>
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
@@ -52,9 +52,9 @@
                 @enderror
             </div>
             <label class="form-check-label" for="flexRadioDefault2">
-                Visible
+                Visible <span class="text-danger">*</span>
             </label>
-            <div class="form-check">
+            <div class="form-check @error('visible') is-invalid @enderror">
                 <input class="form-check-input" type="radio" name="visible" id="flexRadioDefault1" value="1">
                 <label class="form-check-label" for="flexRadioDefault1">
                     Si
@@ -66,7 +66,9 @@
                     No
                 </label>
             </div>
-
+            @error('visible')
+                <div class="invalid_feedback">{{ $message }}</div>
+            @enderror
             <button class="btn btn-primary">Create your products</button>
         </form>
     </div>
