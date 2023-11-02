@@ -37,8 +37,11 @@ function validate() {
     priceError.textContent = 'The price field is required!';
     price.focus();
     valid = false;
+  } else if (price.value <= 0) {
+    priceError.textContent = 'The price field must be greater than 0!';
+    price.focus();
+    valid = false;
   }
-
 
   let radioChecked = false;
 
