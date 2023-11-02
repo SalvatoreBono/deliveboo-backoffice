@@ -51,10 +51,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link"
-                                href="{{ route('admin.products.create') }}">{{ __('Add your products') }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link"
                                 href="{{ route('admin.restaurants.create') }}">{{ __('Add your restaurants') }}</a>
                         </li>
                         @if (Auth::user())
@@ -63,6 +59,10 @@
                                     href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('View your restaurant') }}</a>
                             </li>
                         @endif
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ route('admin.products.create') }}">{{ __('Add your products') }}</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link"
                                 href="{{ route('admin.products.index') }}">{{ __('See all your products') }}</a>
