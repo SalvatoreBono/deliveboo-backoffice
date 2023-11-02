@@ -18,6 +18,12 @@
                             <div class="card-text">{{ $restaurant->email }}</div>
                             <span class="fw-bold">Phone:</span>
                             <div class="card-text">{{ $restaurant->phone }}</div>
+                            <span class="fw-bold">Tipologia del ristorante:</span>
+                            <ul class="p-0 d-flex justify-content-between">
+                                @foreach ($restaurant->types as $type)
+                                    <li>{{ $type->name }}</li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
