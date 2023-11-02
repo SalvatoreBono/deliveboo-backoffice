@@ -7,6 +7,7 @@ use App\Http\Requests\RestaurantUpsertRequest;
 use App\Models\Restaurant;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
@@ -60,8 +61,18 @@ class RestaurantController extends Controller
      */
     public function show($id)
     {
+        //Ottiene l'ID del ristorante associato all'utente autenticato.
+        $restaurantId = Auth::user()->restaurant->id;
+
+
         $restaurant = Restaurant::where("id", $id)->firstOrFail();
-        return view("admin.restaurants.show", compact("restaurant"));
+
+        //Verifica se l'ID del ristorante coincide con l'ID del ristorante dell'utente.
+        if ($restaurantId !== $restaurant->id) {
+            abort(404);
+        } else {
+            return view("admin.restaurants.show", compact("restaurant"));
+        }
     }
 
     /**

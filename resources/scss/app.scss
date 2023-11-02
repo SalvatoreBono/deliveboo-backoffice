@@ -4,4 +4,8 @@
 @use "partials/header";
 @use "partials/main";
 @use "partials/footer";
-@use "index_products.scss"
+@use "index_products.scss";
+
+.invalid_feedback {
+    color: red;
+}
