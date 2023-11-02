@@ -20,7 +20,7 @@
                         </div>
                         <div class="d-flex justify-content-between card-body">
                             <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary">Update</a>
-                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
+                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare il prodotto selezionato?');">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger">Delete</button>
