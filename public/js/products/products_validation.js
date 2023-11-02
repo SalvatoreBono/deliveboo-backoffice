@@ -3,7 +3,7 @@ function validate() {
   const img = document.getElementById('inputimg');
   const description = document.getElementById('inputdescription');
   const price = document.getElementById('inputprice');
-  const radios = document.querySelectorAll('.type-radios');
+  const radios = document.getElementsByName('visible');
 
   const nameError = document.getElementById('error-name');
   nameError.textContent = '';
@@ -13,7 +13,7 @@ function validate() {
   descriptionError.textContent = '';
   const priceError = document.getElementById('error-price');
   priceError.textContent = '';
-  const radiosError = document.querySelectorAll('.type-radios');
+  const radiosError = document.getElementById('error-visible');
   radiosError.textContent = '';
 
   let valid = true;
@@ -38,19 +38,20 @@ function validate() {
     price.focus();
     valid = false;
   }
-  let radioSelected = false;
-  for (const radio of radios) {
-    if (radio.checked) {
-      radioSelected = true;
+
+
+  let radioChecked = false;
+
+  for (let i = 0; i < radios.length; i++) {
+    if (radios[i].checked) {
+      radioChecked = true;
       break;
     }
   }
-  
-  if (!radioSelected) {
+
+  if (!radioChecked) {
     radiosError.textContent = 'Please select a radio option!';
     valid = false;
   }
-  
-
   return valid;
 }
