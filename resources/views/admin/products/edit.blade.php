@@ -25,7 +25,7 @@
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
-                <input type="file" class="form-control @error('img') is-invalid @enderror" value="{{ old('img') }}" id="inputimg" name="img">
+                <input type="file" class="form-control @error('img') is-invalid @enderror" value="{{ old('img') }}" id="inputimg" name="img" accept="image/*">
                 <div id="error-img" class="invalid_feedback"></div>
                 @error('img')
                     <div class="invalid_feedback">{{ $message }}</div>
