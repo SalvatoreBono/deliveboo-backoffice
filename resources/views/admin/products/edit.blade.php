@@ -77,5 +77,5 @@
             <button class="btn btn-primary">Update your products</button>
         </form>
     </div>
-    <script src="{{ asset('js/products/products_validation.js') }}"></script>
+    <script src="{{ asset('js/products/products_edit_validation.js') }}"></script>
 @endsection
