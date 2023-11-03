@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Restaurant;
 
 class RestaurantController extends Controller
 {
@@ -36,7 +37,12 @@ class RestaurantController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $restaurant = Restaurant::with('products')->where('id', $id)->first();
+
+        return response()->json([
+            'success' => true,
+            'restaurant' => $restaurant
+        ]);
     }
 
     /**
