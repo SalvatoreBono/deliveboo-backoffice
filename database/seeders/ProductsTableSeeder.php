@@ -107,7 +107,7 @@ class ProductsTableSeeder extends Seeder
         ],
         [
             "name" => "Wurstel e Patatine",
-            "img" => "wurstel-e-patatine.jpg",
+            "img" => "pizza-wurstel-e-patatine.jpg",
             "description" => "Pizza con pomodoro, mozzarella, wurstel e patatine fritte.",
             "price" => 10.99,
             "visible" => true,
