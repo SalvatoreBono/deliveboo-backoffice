@@ -49,10 +49,12 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('/') }}">{{ __('Home') }}</a>
                         </li>
+                        @if (Auth::check() && !Auth::user()->restaurant)
                         <li class="nav-item">
                             <a class="nav-link"
-                                href="{{ route('admin.restaurants.create') }}">{{ __('Add your restaurants') }}</a>
+                                href="{{ route('admin.restaurants.create') }}">{{ __('Add your restaurant') }}</a>
                         </li>
+                        @endif
                         @if (Auth::user())
                             <li class="nav-item">
                                 <a class="nav-link" {{-- admin.restaurants.show', Auth::user()->id) prendiamo l'id dell'utente autenticato  --}}
