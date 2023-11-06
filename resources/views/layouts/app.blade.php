@@ -63,14 +63,18 @@
                             </li>
                             @endif
                         @endif
+                        @if (Auth::check() && Auth::user()->restaurant)
                         <li class="nav-item">
                             <a class="nav-link"
                                 href="{{ route('admin.products.create') }}">{{ __('Add your products') }}</a>
                         </li>
+                        @endif
+                        @if (Auth::check() && Auth::user()->restaurant)
                         <li class="nav-item">
                             <a class="nav-link"
                                 href="{{ route('admin.products.index') }}">{{ __('See all your products') }}</a>
                         </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
