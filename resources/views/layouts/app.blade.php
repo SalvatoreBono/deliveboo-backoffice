@@ -56,10 +56,12 @@
                         </li>
                         @endif
                         @if (Auth::user())
+                            @if (Auth::check() && Auth::user()->restaurant)
                             <li class="nav-item">
                                 <a class="nav-link" {{-- admin.restaurants.show', Auth::user()->id) prendiamo l'id dell'utente autenticato  --}}
                                     href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('View your restaurant') }}</a>
                             </li>
+                            @endif
                         @endif
                         <li class="nav-item">
                             <a class="nav-link"
