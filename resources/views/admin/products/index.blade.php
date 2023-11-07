@@ -22,7 +22,7 @@
                             <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary">Update</a>
                             
 
-                            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Delete</button>
+                            <button class="btn btn-danger" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Delete</button>
 
                             <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
                                 <div class="offcanvas-header">
