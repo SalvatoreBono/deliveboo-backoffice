@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use Illuminate\Support\Facades\DB;
 
 class TypeController extends Controller
 {
@@ -13,11 +15,26 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::with('restaurants')->get();
+        $queryString = request()->query('selectedTypes', []);
+
+        $types = Type::all();
+
+        $typeString = Type::whereIn('id', $queryString)
+            ->with('restaurants')
+            ->get();
+
+        $restaurants = Restaurant::join('restaurant_type as rt1', 'restaurants.id', '=', 'rt1.restaurant_id')
+            ->whereIn('rt1.type_id', $queryString)
+            ->groupBy('restaurants.id')
+            ->havingRaw('COUNT(DISTINCT rt1.type_id) = ' . count($queryString))
+            ->select('restaurants.*')
+            ->get();
 
         return response()->json([
             'success' => true,
-            'results' => $types
+            'restaurants' => $restaurants,
+            'results' => $types,
+            'typestring' => $typeString
         ]);
     }
 
