@@ -9,6 +9,24 @@ use Illuminate\Support\Facades\DB;
 
 class RestaurantController extends Controller
 {
+
+    public function searchByTypes(Request $request)
+    {
+        $typeIds = $request->input('selectedTypes'); // Recupera i type_id dalla richiesta
+
+        dd($typeIds);
+
+        $query = Restaurant::query();
+
+        foreach ($typeIds as $typeId) {
+            $query->join('restaurant_type', 'restaurants.id', '=', 'restaurant_type.restaurant_id')
+                ->where('restaurant_type.type_id', $typeId);
+        }
+
+        $restaurants = $query->select('restaurants.*')->distinct()->get();
+
+        return view('restaurants.index', compact('restaurants'));
+    }
     /**
      * Display a listing of the resource.
      */
