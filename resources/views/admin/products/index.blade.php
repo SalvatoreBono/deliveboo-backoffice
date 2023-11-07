@@ -16,15 +16,34 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $product->price }} $</p>
-                            <p class="card-text">{{ $product->visible ? "visible" : "not visible" }}</p>
+                            <p class="card-text">{{ $product->visible ? 'visible' : 'not visible' }}</p>
                         </div>
                         <div class="d-flex justify-content-between card-body">
                             <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-primary">Update</a>
-                            <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler eliminare il prodotto selezionato?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+                            
+
+                            <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" aria-controls="offcanvasBottom">Delete</button>
+
+                            <div class="offcanvas offcanvas-top" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+                                <div class="offcanvas-header">
+                                    <h5 class="offcanvas-title" id="offcanvasTopLabel">Are you sure you want to delete your product?</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                                </div>
+                                <div class="offcanvas-body small">
+                                    
+                                    
+                                    <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Yes, delete!</button>
+                                    </form>
+                                    
+
+
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
                 </div>
