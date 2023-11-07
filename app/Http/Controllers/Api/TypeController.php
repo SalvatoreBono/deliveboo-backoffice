@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Type;
+use Illuminate\Support\Facades\DB;
 
 class TypeController extends Controller
 {
@@ -13,10 +14,16 @@ class TypeController extends Controller
      */
     public function index()
     {
-        $types = Type::with('restaurants')->get();
+        $types = Type::all();
+
+        $queryString = request()->query();
+        $restaurants = DB::table('restaurant_type')
+            ->where('type_id', $queryString)
+            ->get();
 
         return response()->json([
             'success' => true,
+            'restaurants' => $restaurants,
             'results' => $types
         ]);
     }
