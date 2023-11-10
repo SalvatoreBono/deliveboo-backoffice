@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('customer_email');
             $table->string('customer_phone');
             $table->string('customer_address');
-            $table->decimal('total_price', 10,2);
-            $table->string('status');
-            $table->text('notes');
+            $table->decimal('total_price', 10, 2);
+            $table->boolean('status');
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }
