@@ -35,6 +35,7 @@ class OrderController extends Controller
         $newOrder =  Order::create($data);
 
         return response()->json($newOrder);
+
     }
 
     /**
