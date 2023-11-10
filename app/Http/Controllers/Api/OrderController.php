@@ -32,10 +32,13 @@ class OrderController extends Controller
     {
         $data = $request->validated();
 
-        $newOrder =  Order::create($data);
-
+        $newOrder =  new Order();
+        $newOrder->fill($data);
+        $newOrder->save();
+        if (key_exists("products", $data)) {
+            $newOrder->products()->attach($data["products"]);
+        }
         return response()->json($newOrder);
-
     }
 
     /**

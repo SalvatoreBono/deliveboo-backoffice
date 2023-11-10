@@ -29,7 +29,8 @@ class OrderUpsertRequest extends FormRequest
             'customer_address' => 'required|string',
             'total_price' => 'required|min:0',
             'status' => 'required|boolean',
-            'notes' => 'string|nullable'
+            'notes' => 'string|nullable',
+            'products' => 'required'
         ];
     }
 }
