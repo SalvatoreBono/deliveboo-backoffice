@@ -35,9 +35,13 @@ class OrderController extends Controller
         $newOrder =  new Order();
         $newOrder->fill($data);
         $newOrder->save();
-        if (key_exists("products", $data)) {
-            $newOrder->products()->attach($data["products"]);
+        $combined = array_combine($data['products'], $data['quantities']);
+        foreach ($combined as $productId => $quantity) {
+            $newOrder->products()->attach($productId, ['quantity' => $quantity]);
         }
+        // if (key_exists("products", $data)) {
+        //     $newOrder->products()->attach($data["products"]);
+        // }
         return response()->json($newOrder);
     }
 
