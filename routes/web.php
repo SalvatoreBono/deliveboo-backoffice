@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RestaurantController;
+use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\ProfileController;
-use App\Models\Restaurant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +34,7 @@ Route::middleware(["auth", "verified"])
     ->group(function () {
         Route::resource("restaurants", RestaurantController::class);
         Route::resource("products", ProductController::class);
+        Route::resource("orders", OrderController::class);
     });
 
 Route::middleware('auth')->group(function () {
