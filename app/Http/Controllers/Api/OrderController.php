@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\OrderUpsertRequest;
+use App\Mail\AdminNewOrder;
+use App\Mail\UserNewOrder;
 use App\Models\Order;
+use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
 {
@@ -42,6 +45,8 @@ class OrderController extends Controller
         // if (key_exists("products", $data)) {
         //     $newOrder->products()->attach($data["products"]);
         // }
+        Mail::to($data["email"])->send(new UserNewOrder($data));
+        Mail::to("salvatorebono2001@gmail.com")->send(new AdminNewOrder($data));
         return response()->json($newOrder);
     }
 
