@@ -40,7 +40,7 @@ class ProductController extends Controller
     public function index()
     {
         $restaurantId = Auth::user()->restaurant->id;
-        $products = Product::where("restaurant_id", $restaurantId)->get();
+        $products = Product::where("restaurant_id", $restaurantId)->orderBy('name')->get();
         return view("admin.products.index", compact("products"));
     }
 
