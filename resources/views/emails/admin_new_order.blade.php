@@ -6,5 +6,5 @@
     <li>Numero: {{ $formData['customer_phone'] }}</li>
     <li>Via: {{ $formData['customer_address'] }}</li>
     <li>Totale: {{ $formData['total_price'] }}</li>
-    <li>Nome: {{ $formData['notes'] }}</li>
+    <li>Note: {{ $formData['notes'] }}</li>
 </ul>
