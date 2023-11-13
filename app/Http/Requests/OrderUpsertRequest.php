@@ -30,7 +30,8 @@ class OrderUpsertRequest extends FormRequest
             'total_price' => 'required|min:0',
             'status' => 'required|boolean',
             'notes' => 'string|nullable',
-            'products' => 'required'
+            'products' => 'required',
+            'quantities' => 'required',
         ];
     }
 }
