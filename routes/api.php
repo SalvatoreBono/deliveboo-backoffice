@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\TypeController;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\OrderController;
+use App\Http\Controllers\Api\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('types', [TypeController::class, 'index']);
 Route::get('restaurants/{restaurant}', [RestaurantController::class, 'show']);
+
+// rotta per il checkout
+Route::post('/checkout', [PaymentController::class, 'checkout']);
 Route::post('orders', [OrderController::class, 'store']);
