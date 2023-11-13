@@ -40,7 +40,7 @@ class OrderController extends Controller
 
         }
 
-        $orders = $orders->unique('id');
+        $orders = $orders->unique('id')->sortByDesc('created_at');
 
         // dd($orders);
 

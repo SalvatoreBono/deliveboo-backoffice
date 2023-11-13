@@ -22,7 +22,7 @@
                                 <p class="card-text">{{ $product['pivot']['quantity'] }}</p>
                             @endforeach
                         </div>
-
+                        <p class="card-text">{{ $order['created_at'] }}</p>
                         </div>
                     </div>
                 </div>
