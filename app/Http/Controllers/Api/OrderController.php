@@ -45,7 +45,7 @@ class OrderController extends Controller
         // if (key_exists("products", $data)) {
         //     $newOrder->products()->attach($data["products"]);
         // }
-        Mail::to($data["email"])->send(new UserNewOrder($data));
+        Mail::to($data["customer_email"])->send(new UserNewOrder($data));
         Mail::to("salvatorebono2001@gmail.com")->send(new AdminNewOrder($data));
         return response()->json($newOrder);
     }
