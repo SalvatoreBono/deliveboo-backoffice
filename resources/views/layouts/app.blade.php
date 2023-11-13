@@ -75,6 +75,12 @@
                                 href="{{ route('admin.products.index') }}">{{ __('See all your products') }}</a>
                         </li>
                         @endif
+                        @if (Auth::check() && Auth::user()->restaurant)
+                        <li class="nav-item">
+                            <a class="nav-link"
+                                href="{{ route('admin.orders.index') }}">{{ __('See all your orders') }}</a>
+                        </li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
