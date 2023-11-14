@@ -38,7 +38,7 @@ class AdminNewOrder extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.admin_new_order',
+            markdown: 'emails.admin_new_order',
         );
     }
 
