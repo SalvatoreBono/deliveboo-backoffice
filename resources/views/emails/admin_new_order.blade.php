@@ -5,6 +5,6 @@
     <li>Email: {{ $formData['customer_email'] }}</li>
     <li>Numero: {{ $formData['customer_phone'] }}</li>
     <li>Via: {{ $formData['customer_address'] }}</li>
-    <li>Totale: {{ $formData['total_price'] }}</li>
     <li>Note: {{ $formData['notes'] }}</li>
+    <li>Totale: {{ $formData['total_price'] }}€</li>
 </ul>
