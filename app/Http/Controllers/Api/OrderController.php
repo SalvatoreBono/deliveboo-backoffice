@@ -8,6 +8,8 @@ use App\Http\Requests\OrderUpsertRequest;
 use App\Mail\AdminNewOrder;
 use App\Mail\UserNewOrder;
 use App\Models\Order;
+use App\Models\Product;
+use App\Models\Restaurant;
 use Illuminate\Support\Facades\Mail;
 
 class OrderController extends Controller
@@ -35,21 +37,30 @@ class OrderController extends Controller
     {
         $data = $request->validated();
 
-        $newOrder =  new Order();
+        $newOrder = new Order();
         $newOrder->fill($data);
         $newOrder->save();
         $combined = array_combine($data['products'], $data['quantities']);
+
+        $restaurantEmail = null; // Inizializza la variabile per l'email del ristorante
+
         foreach ($combined as $productId => $quantity) {
             $newOrder->products()->attach($productId, ['quantity' => $quantity]);
+
+            // Recupera l'ID del ristorante associato al prodotto ordinato
+            $restaurantId = Product::find($productId)->restaurant_id;
+
+            // Recupera l'email del ristorante
+            $restaurantEmail = Restaurant::find($restaurantId)->email;
         }
-        // if (key_exists("products", $data)) {
-        //     $newOrder->products()->attach($data["products"]);
-        // }
+
+        // Invia l'email al ristorante
+        Mail::to($restaurantEmail)->send(new AdminNewOrder($data));
+        // Invia l'email di conferma all'utente
         Mail::to($data["customer_email"])->send(new UserNewOrder($data));
-        Mail::to("salvatorebono2001@gmail.com")->send(new AdminNewOrder($data));
+
         return response()->json($newOrder);
     }
-
     /**
      * Display the specified resource.
      */
