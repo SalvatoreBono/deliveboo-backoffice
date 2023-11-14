@@ -3,36 +3,40 @@
 @section('content')
     <div class="container pt-3">
         {{-- action="{{ $action }}"= è un segnaposto  --}}
-        <form action="{{ route('admin.products.update', $product->id) }}" class="row g-3" method="POST" enctype="multipart/form-data" onsubmit="return(validate())">
+        <form action="{{ route('admin.products.update', $product->id) }}" class="row g-3" method="POST"
+            enctype="multipart/form-data" onsubmit="return(validate())">
             @csrf()
             {{-- @method($method) = è un segnaposto --}}
             @method('PUT')
 
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Name Product <span class="text-danger">*</span></label>
+                <label for="inputTitle" class="form-label">Nome piatto <span class="text-danger">*</span></label>
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
-                <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name', $product->name) }}" id="inputname" name="name">
+                <input type="text" class="form-control @error('name') is-invalid @enderror"
+                    value="{{ old('name', $product->name) }}" id="inputname" name="name">
                 <div id="error-name" class="invalid_feedback"></div>
                 @error('name')
                     <div class="invalid_feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Image Product</label>
-                <img src="{{ asset('storage/' . $product->img) }}" class="img-thumbnail" style="width: 100px" alt="...">
+                <label for="inputTitle" class="form-label">Immagine piatto </label>
+                <img src="{{ asset('storage/' . $product->img) }}" class="img-thumbnail" style="width: 100px"
+                    alt="...">
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
-                <input type="file" class="form-control @error('img') is-invalid @enderror" value="{{ old('img') }}" id="inputimg" name="img" accept="image/*">
+                <input type="file" class="form-control @error('img') is-invalid @enderror" value="{{ old('img') }}"
+                    id="inputimg" name="img" accept="image/*">
                 <div id="error-img" class="invalid_feedback"></div>
                 @error('img')
                     <div class="invalid_feedback">{{ $message }}</div>
                 @enderror
             </div>
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Description <span class="text-danger">*</span></label>
+                <label for="inputTitle" class="form-label">Descrizione <span class="text-danger">*</span></label>
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
@@ -43,18 +47,19 @@
                 @enderror
             </div>
             <div class="col-12">
-                <label for="inputTitle" class="form-label">Price <span class="text-danger">*</span></label>
+                <label for="inputTitle" class="form-label">Prezzo <span class="text-danger">*</span></label>
                 {{-- value="{{ old('email'= ottenere il valore precedentemente inviato --}}
                 {{-- , $name?->email) }} = stampare il valore di email --}}
                 {{-- , $name?->email) }} = "?" se la variabile $name non è definito assegna "null"  --}}
-                <input step="0.01" type="number" class="form-control @error('price') is-invalid @enderror" value="{{ old('price', $product->price) }}" id="inputprice" name="price">
+                <input step="0.01" type="number" class="form-control @error('price') is-invalid @enderror"
+                    value="{{ old('price', $product->price) }}" id="inputprice" name="price">
                 <div id="error-price" class="invalid_feedback"></div>
                 @error('price')
                     <div class="invalid_feedback">{{ $message }}</div>
                 @enderror
             </div>
             <label class="form-check-label" for="flexRadioDefault2">
-                Visible <span class="text-danger">*</span>
+                Visibile <span class="text-danger">*</span>
             </label>
             <div class="form-check">
                 <input class="form-check-input" type="radio" name="visible" id="1" value="1"
@@ -74,7 +79,7 @@
             @error('visible')
                 <div class="invalid_feedback">{{ $message }}</div>
             @enderror
-            <button class="btn btn-primary">Update your products</button>
+            <button class="btn btn-primary">Aggiorna il tuo piatto</button>
         </form>
     </div>
     <script src="{{ asset('js/products/products_edit_validation.js') }}"></script>

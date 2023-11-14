@@ -27,38 +27,38 @@ function validate() {
 
   // creo le varie condizioni dove al loro interno passo i vari messaggi di errore nel caso in cui il campo viene lasciato vuoto oppure riempito con valori non idonei
   if (!name.value) {
-    nameError.textContent = "The name field is required!";
+    nameError.textContent = "È richiesto il campo nome!";
     valid = false;
   }
   if (!surname.value) {
-    surnameError.textContent = 'The surname field is required!';
+    surnameError.textContent = 'Il campo cognome è obbligatorio!';
     valid = false;
   }
   if (!email.value) {
-    emailError.textContent = 'The email field is required!';
+    emailError.textContent = 'Il campo email è obbligatorio!';
     valid = false;
   }
   if (!password.value) {
-    passwordError.textContent = 'The password field is required!';
+    passwordError.textContent = 'Il campo password è obbligatorio!';
     valid = false;
   }
   if (!passwordConfirm.value) {
-    confirmpasswordError.textContent = 'The confirm password field is required!';
+    confirmpasswordError.textContent = 'Il campo conferma password è obbligatorio!';
     valid = false;
   }
   if (password.value !== passwordConfirm.value) {
-    passwordError.textContent = 'The password and the confirm password must be the same!';
+    passwordError.textContent = 'La password e la password di conferma devono essere le stesse!';
     passwordConfirm.value = '';
     valid = false;
-  } 
+  }
   if (!vatNumber.value) {
-    vatnumberError.textContent = 'The VAT number field is required!';
+    vatnumberError.textContent = 'Il campo Partita IVA è obbligatorio!';
     valid = false;
   } else if (vatNumber.value.length <= 11) {
-    vatnumberError.textContent = 'The VAT number must be at least 11 digits!';
+    vatnumberError.textContent = 'La partita IVA deve essere composta da almeno 11 cifre!';
     valid = false;
   } else if (isNaN(vatNumber.value)) {
-    vatnumberError.textContent = 'The VAT number must be a number!';
+    vatnumberError.textContent = 'La partita IVA deve contenere numeri!';
     valid = false;
   }
 

@@ -8,7 +8,7 @@
             <thead>
                 <tr>
                     <th scope="col">N° Ordine</th>
-                    <th scope="col">Order Date and Time</th>
+                    <th scope="col">Data e ora dell'ordine</th>
                     <th scope="col">Nome</th>
                     <th scope="col">Cognome</th>
                     <th scope="col">Indirizzo</th>

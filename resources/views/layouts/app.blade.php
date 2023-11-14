@@ -87,7 +87,7 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="px-3 fs-3" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <a class="px-3 fs-3" href="{{ route('register') }}">{{ __('Sign in') }}</a>
                                 </li>
                             @endif
                         @else
@@ -97,33 +97,33 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div style="left: -25px;" class="dropdown-menu dropdown-menu-right"
+                                <div style="left: -110px;" class="dropdown-menu dropdown-menu-right"
                                     aria-labelledby="navbarDropdown">
                                     @if (Auth::check() && !Auth::user()->restaurant)
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.restaurants.create') }}">{{ __('Add your restaurant') }}</a>
+                                            href="{{ route('admin.restaurants.create') }}">{{ __('Crea il tuo ristorante') }}</a>
                                     @endif
                                     @if (Auth::user())
                                         @if (Auth::check() && Auth::user()->restaurant)
                                             <a class="dropdown-item"
-                                                href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('View your restaurant') }}</a>
+                                                href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('Visualizza il tuo ristorante') }}</a>
                                         @endif
                                     @endif
                                     @if (Auth::check() && Auth::user()->restaurant)
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.products.create') }}">{{ __('Add your products') }}</a>
+                                            href="{{ route('admin.products.create') }}">{{ __('Aggiungi i tuoi piatti') }}</a>
                                     @endif
 
                                     @if (Auth::check() && Auth::user()->restaurant)
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.products.index') }}">{{ __('See all your products') }}</a>
+                                            href="{{ route('admin.products.index') }}">{{ __('Guarda tutti i tuoi piatti') }}</a>
                                     @endif
 
                                     @if (Auth::check() && Auth::user()->restaurant)
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.orders.index') }}">{{ __('See all your orders') }}</a>
+                                            href="{{ route('admin.orders.index') }}">{{ __('Visualizza tutti i tuoi ordini') }}</a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profile') }}</a>
+                                    <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profilo') }}</a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
