@@ -9,3 +9,13 @@
     background-image: linear-gradient(180deg, #41642e 75%, #4e7738 92%, #4e7738 100%);
     background-image: url(/public/img/jumbo.jpg);
 }
+
+.img-doc {
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+}
+.img-doc img {
+    width: 100%;
+    height: 100%;
+}

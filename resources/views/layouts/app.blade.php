@@ -85,9 +85,7 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-
-
-                                <div style="left: -110px;" class="dropdown-menu dropdown-menu-right"
+                                <div style="left: -60px;" class="dropdown-menu dropdown-menu-right"
                                     aria-labelledby="navbarDropdown">
                                     @if (Auth::check() && !Auth::user()->restaurant)
                                         <a class="dropdown-item"
@@ -96,22 +94,22 @@
                                     @if (Auth::user())
                                         @if (Auth::check() && Auth::user()->restaurant)
                                             <a class="dropdown-item"
-                                                href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('Visualizza il tuo ristorante') }}</a>
+                                                href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('Il tuo ristorante') }}</a>
                                         @endif
                                     @endif
                                     @if (Auth::check() && Auth::user()->restaurant)
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.products.create') }}">{{ __('Aggiungi i tuoi piatti') }}</a>
+                                            href="{{ route('admin.products.create') }}">{{ __('Aggiungi piatto') }}</a>
                                     @endif
 
                                     @if (Auth::check() && Auth::user()->restaurant)
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.products.index') }}">{{ __('Guarda tutti i tuoi piatti') }}</a>
+                                            href="{{ route('admin.products.index') }}">{{ __('I tuoi piatti') }}</a>
                                     @endif
 
                                     @if (Auth::check() && Auth::user()->restaurant)
                                         <a class="dropdown-item"
-                                            href="{{ route('admin.orders.index') }}">{{ __('Visualizza tutti i tuoi ordini') }}</a>
+                                            href="{{ route('admin.orders.index') }}">{{ __('Storico ordini') }}</a>
                                     @endif
                                     <a class="dropdown-item"
                                         href="{{ route('dashboard') }}">{{ __('Documentazione') }}</a>
