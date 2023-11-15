@@ -5,7 +5,7 @@
         <h1 class="text-center fw-bold text-uppercase pb-3">I tuoi piatti</h1>
         <div class="row row-cols-4 g-3">
             @foreach ($products as $product)
-                <div class="col">
+                <div class="col-12 col-md-4 ">
                     <div class="card d-flex flex-column justify-content-between h-100">
                         <div>
                             <img src="{{ asset('storage/' . $product->img) }}" class="card-img-top" alt="...">

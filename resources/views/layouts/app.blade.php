@@ -26,7 +26,7 @@
         <nav class="navbar navbar-expand-lg" id="myNavbar">
             <div class="container">
                 <div>
-                    <a href="http://localhost:5173/"><img style="width: 210px;" src="/img/logo.png" alt=""></a>
+                    <a href="http://localhost:5174/"><img style="width: 210px;" src="/img/logo.png" alt=""></a>
                 </div>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -39,7 +39,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a href="http://localhost:5173/" class="px-3 fs-3">Home</a>
+                            <a href="http://localhost:5174/" class="px-3 fs-3">Home</a>
                         </li>
 
 
