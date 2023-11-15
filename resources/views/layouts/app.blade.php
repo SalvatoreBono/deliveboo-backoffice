@@ -24,7 +24,7 @@
 
 
         <nav class="navbar navbar-expand-lg" id="myNavbar">
-            <div class="container-fluid">
+            <div class="container">
                 <div>
                     <a href="http://localhost:5173/"><img style="width: 210px;" src="/img/logo.png" alt=""></a>
                 </div>

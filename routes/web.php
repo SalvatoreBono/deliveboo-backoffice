@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return redirect("http://localhost:5173/");
+    return redirect("http://localhost:5174/");
 });
 
 Route::get('/dashboard', function () {
