@@ -19,97 +19,103 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body class="">
+<body class="container-dash">
     <div id="app">
 
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg" id="myNavbar">
+                <div class="container">
+                    <div>
+                        <a href="http://localhost:5174/"><img style="width: 210px;" src="/img/logo.png"
+                                alt=""></a>
+                    </div>
 
-        <nav class="navbar navbar-expand-lg" id="myNavbar">
-            <div class="container">
-                <div>
-                    <a href="http://localhost:5174/"><img style="width: 210px;" src="/img/logo.png" alt=""></a>
-                </div>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a href="http://localhost:5174/" class="px-3 fs-3">Home</a>
-                        </li>
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <!-- Left Side Of Navbar -->
+                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li class="nav-item">
-                                <a class="px-3 fs-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                <a href="http://localhost:5174/" class="px-3 fs-3">Home</a>
                             </li>
-                            @if (Route::has('register'))
+                        </ul>
+
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <!-- Authentication Links -->
+                            @guest
                                 <li class="nav-item">
-                                    <a class="px-3 fs-3" href="{{ route('register') }}">{{ __('Sign in') }}</a>
+                                    <a class="px-3 fs-3" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="px-3 fs-3 dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
-                                <div style="left: -110px;" class="dropdown-menu dropdown-menu-right"
-                                    aria-labelledby="navbarDropdown">
-                                    @if (Auth::check() && !Auth::user()->restaurant)
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.restaurants.create') }}">{{ __('Crea il tuo ristorante') }}</a>
-                                    @endif
-                                    @if (Auth::user())
-                                        @if (Auth::check() && Auth::user()->restaurant)
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('Visualizza il tuo ristorante') }}</a>
-                                        @endif
-                                    @endif
-                                    @if (Auth::check() && Auth::user()->restaurant)
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.products.create') }}">{{ __('Aggiungi i tuoi piatti') }}</a>
-                                    @endif
-
-                                    @if (Auth::check() && Auth::user()->restaurant)
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.products.index') }}">{{ __('Guarda tutti i tuoi piatti') }}</a>
-                                    @endif
-
-                                    @if (Auth::check() && Auth::user()->restaurant)
-                                        <a class="dropdown-item"
-                                            href="{{ route('admin.orders.index') }}">{{ __('Visualizza tutti i tuoi ordini') }}</a>
-                                    @endif
-                                    <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profilo') }}</a>
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                @if (Route::has('register'))
+                                    <li class="nav-item">
+                                        <a class="px-3 fs-3" href="{{ route('register') }}">{{ __('Sign in') }}</a>
+                                    </li>
+                                @endif
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a id="navbarDropdown" class="px-3 fs-3 dropdown-toggle" href="#" role="button"
+                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                        {{ Auth::user()->name }}
                                     </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
+                                    
 
-                    </ul>
+                                    <div style="left: -110px;" class="dropdown-menu dropdown-menu-right"
+                                        aria-labelledby="navbarDropdown">
+                                        @if (Auth::check() && !Auth::user()->restaurant)
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.restaurants.create') }}">{{ __('Crea il tuo ristorante') }}</a>
+                                        @endif
+                                        @if (Auth::user())
+                                            @if (Auth::check() && Auth::user()->restaurant)
+                                                <a class="dropdown-item"
+                                                    href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('Visualizza il tuo ristorante') }}</a>
+                                            @endif
+                                        @endif
+                                        @if (Auth::check() && Auth::user()->restaurant)
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.products.create') }}">{{ __('Aggiungi i tuoi piatti') }}</a>
+                                        @endif
+
+                                        @if (Auth::check() && Auth::user()->restaurant)
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.products.index') }}">{{ __('Guarda tutti i tuoi piatti') }}</a>
+                                        @endif
+
+                                        @if (Auth::check() && Auth::user()->restaurant)
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.orders.index') }}">{{ __('Visualizza tutti i tuoi ordini') }}</a>
+                                        @endif
+                                        <a class="dropdown-item"
+                                        href="{{ route('dashboard') }}">{{ __('Vai alla dashboard') }}</a>
+                                        <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profilo') }}</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </li>
+                            @endguest
+                        </ul>
+                    </div>
                 </div>
-            </div>
-        </nav>
+            </nav>
 
-        <main class="">
-            @yield('content')
-        </main>
+            <main class="">
+                @yield('content')
+            </main>
+        </div>
     </div>
 </body>
 
