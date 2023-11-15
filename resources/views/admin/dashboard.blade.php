@@ -22,7 +22,7 @@
                     <img class="" src="/img/Guida-2.png" alt="">
                 </div>
                 <div class="ms-5 text-light">
-                    <h3 class="">2. Seleziona la voce "Il tuo ristorante"</h3>
+                    <h3 class="">2. Seleziona la voce "Crea il tuo ristorante"</h3>
                 </div>
             </div>
         </div>
