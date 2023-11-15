@@ -41,41 +41,6 @@
                         <li class="nav-item">
                             <a href="http://localhost:5174/" class="px-3 fs-3">Home</a>
                         </li>
-
-
-                        {{--          @if (Auth::check() && !Auth::user()->restaurant)
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('admin.restaurants.create') }}">{{ __('Add your restaurant') }}</a>
-                            </li>
-                        @endif --}}
-                        {{--        @if (Auth::user())
-                            @if (Auth::check() && Auth::user()->restaurant)
-                                <li class="nav-item">
-                                    <a class="nav-link" --}} {{-- admin.restaurants.show', Auth::user()->id) prendiamo l'id dell'utente autenticato  --}}
-                        {{-- href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('View your restaurant') }}</a>
-                                </li>
-                            @endif
-                        @endif --}}
-                        {{--          @if (Auth::check() && Auth::user()->restaurant)
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('admin.products.create') }}">{{ __('Add your products') }}</a>
-                            </li>
-                        @endif --}}
-                        {{--             @if (Auth::check() && Auth::user()->restaurant)
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('admin.products.index') }}">{{ __('See all your products') }}</a>
-                            </li>
-                        @endif --}}
-                        {{--                @if (Auth::check() && Auth::user()->restaurant)
-                            <li class="nav-item">
-                                <a class="nav-link"
-                                    href="{{ route('admin.orders.index') }}">{{ __('See all your orders') }}</a>
-                            </li>
-                        @endif --}}
-
                     </ul>
 
                     <!-- Right Side Of Navbar -->

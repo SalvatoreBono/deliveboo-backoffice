@@ -2,6 +2,7 @@
 @section('title', 'Create')
 @section('content')
     <div class="container pt-3">
+        <h1 class="m-5 text-center">Modifica i dati del tuo piatto!</h1>
         {{-- action="{{ $action }}"= è un segnaposto  --}}
         <form action="{{ route('admin.products.update', $product->id) }}" class="row g-3" method="POST"
             enctype="multipart/form-data" onsubmit="return(validate())">
