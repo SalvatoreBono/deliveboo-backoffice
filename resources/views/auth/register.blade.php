@@ -12,7 +12,7 @@
                             @csrf
 
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome') }}
                                     <span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -28,7 +28,7 @@
                                 </div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}
+                                <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Cognome') }}
                                     <span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -45,9 +45,8 @@
                             </div>
 
                             <div class="mb-4 row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} <span
-                                        class="text-danger">*</span></label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail') }}
+                                    <span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input id="email" type="email"
@@ -81,7 +80,7 @@
 
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }} <span
+                                    class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }} <span
                                         class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -91,9 +90,8 @@
                                 <div id="error-confirm-password" class="invalid_feedback"></div>
                             </div>
                             <div class="mb-4 row">
-                                <label for="VAT_number"
-                                    class="col-md-4 col-form-label text-md-right">{{ __('VAT number') }} <span
-                                        class="text-danger">*</span></label>
+                                <label for="VAT_number" class="col-md-4 col-form-label text-md-right">{{ __('IVA') }}
+                                    <span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
                                     <input id="VAT_number" type="text"

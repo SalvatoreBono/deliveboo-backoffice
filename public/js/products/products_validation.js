@@ -7,7 +7,7 @@ function validate() {
   const price = document.getElementById('inputprice');
   const radios = document.getElementsByName('visible');
 
-   // richiamo gli id dei div assegnati ad ogni campo del form a cui aggiungiamo un messaggio di errore momentaneamente vuoto
+  // richiamo gli id dei div assegnati ad ogni campo del form a cui aggiungiamo un messaggio di errore momentaneamente vuoto
   const nameError = document.getElementById('error-name');
   nameError.textContent = '';
   const imgError = document.getElementById('error-img');
@@ -24,22 +24,22 @@ function validate() {
 
   // creo le varie condizioni dove al loro interno passo i vari messaggi di errore nel caso in cui il campo viene lasciato vuoto oppure riempito con valori non idonei
   if (!name.value) {
-    nameError.textContent = "The name field is required!";
+    nameError.textContent = "È richiesto il campo nome!";
     valid = false;
   }
   if (!img.value) {
-    imgError.textContent = 'The img field is required!';
+    imgError.textContent = 'È richiesto il campo immagine!';
     valid = false;
   }
   if (!description.value) {
-    descriptionError.textContent = 'The description field is required!';
+    descriptionError.textContent = 'È richiesto il campo descrizione!';
     valid = false;
   }
   if (!price.value) {
-    priceError.textContent = 'The price field is required!';
+    priceError.textContent = 'È richiesto il campo prezzo!';
     valid = false;
   } else if (price.value <= 0) {
-    priceError.textContent = 'The price field must be greater than 0!';
+    priceError.textContent = 'Il campo del prezzo deve essere maggiore di 0!';
     valid = false;
   }
 
@@ -57,7 +57,7 @@ function validate() {
 
   // assegno il messaggio d'errore al campo visible nel caso in cui non viene selezionata nessuna radio
   if (!radioChecked) {
-    radiosError.textContent = 'Please select a radio option!';
+    radiosError.textContent = 'Seleziona un\'opzione';
     valid = false;
   }
   // ritorno la variabile valid

@@ -27,29 +27,29 @@ function validate() {
 
   // creo le varie condizioni dove al loro interno passo i vari messaggi di errore nel caso in cui il campo viene lasciato vuoto oppure riempito con valori non idonei
   if (!email.value) {
-    mailError.textContent = "The email field is required!";
+    mailError.textContent = "Il campo email è obbligatorio!";
     valid = false;
   }
   if (!phone.value) {
-    phoneError.textContent = 'The phone field is required!';
+    phoneError.textContent = 'Il campo telefono è obbligatorio!';
     valid = false;
   } else if (phone.value.length !== 10) {
-    phoneError.textContent = 'The phone number must be 10 digits long!';
+    phoneError.textContent = 'Il numero di telefono deve essere lungo 10 cifre!';
     valid = false;
   }
   if (!activity_name.value) {
-    activitynameError.textContent = 'The activity name field is required!';
+    activitynameError.textContent = 'Il campo del nome dell\'attività è obbligatorio!';
     valid = false;
   }
   if (!img.value) {
-    imgError.textContent = 'The image field is required!';
+    imgError.textContent = 'Il campo immagine è obbligatorio!';
     valid = false;
   }
   if (!address.value) {
-    addressError.textContent = 'The address field is required!';
+    addressError.textContent = 'Il campo indirizzo è obbligatorio!';
     valid = false;
   }
-  
+
   // creo una variabile checkboxChecked  a cui assegno il valore false
   let checkboxChecked = false;
   // creo un ciclo che va ad applicare la condizione ad ogni checkbox
@@ -63,7 +63,7 @@ function validate() {
 
   // assegno il messaggio d'errore al campo visible nel caso in cui non viene selezionata nessuna checkbox
   if (!checkboxChecked) {
-    typeError.textContent = 'Select at least one type!';
+    typeError.textContent = 'Seleziona almeno una tipologia!';
     valid = false;
   }
 
