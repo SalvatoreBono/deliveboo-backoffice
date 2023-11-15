@@ -19,28 +19,29 @@
     @vite(['resources/js/app.js'])
 </head>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    // Abbiamo commentato l'hover allo scroll perche dava fastidio. trapezio!
+    // document.addEventListener("DOMContentLoaded", function() {
 
-        window.addEventListener("scroll", handleScroll);
+    //     window.addEventListener("scroll", handleScroll);
 
-        function handleScroll() {
-            const navbar = document.getElementById("myNavbar");
-            if (navbar) {
-                const scrollY = window.scrollY;
-                if (scrollY > 0) {
-                    navbar.style.backgroundColor = "rgba(65, 100, 46, 0.6)";
-                    navbar.querySelectorAll("a").forEach((link) => {
-                        link.style.color = "#dbd5af";
-                    });
-                } else {
-                    navbar.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
-                    navbar.querySelectorAll("a").forEach((link) => {
-                        link.style.color = "black";
-                    });
-                }
-            }
-        }
-    });
+    //     function handleScroll() {
+    //         const navbar = document.getElementById("myNavbar");
+    //         if (navbar) {
+    //             const scrollY = window.scrollY;
+    //             if (scrollY > 0) {
+    //                 navbar.style.backgroundColor = "rgba(65, 100, 46, 0.6)";
+    //                 navbar.querySelectorAll("a").forEach((link) => {
+    //                     link.style.color = "#dbd5af";
+    //                 });
+    //             } else {
+    //                 navbar.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+    //                 navbar.querySelectorAll("a").forEach((link) => {
+    //                     link.style.color = "black";
+    //                 });
+    //             }
+    //         }
+    //     }
+    // });
 </script>
 
 <body class="container-dash">

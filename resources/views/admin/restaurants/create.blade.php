@@ -2,9 +2,9 @@
 @section('title', 'Create')
 @section('content')
 
-    <div class="container pt-3">
-        <div style="background-color: rgba(0, 0, 0, 0.5)" class="card p-4 mb-4 shadow rounded-lg ">
-            <h1 class="m-5 text-center text-light">Inserisci i dati per registrare il tuo ristorante!</h1>
+    <div class="container p-3">
+        <div style="background-color: rgba(0, 0, 0, 0.5)" class="card p-4 shadow rounded-lg ">
+            <h1 class="my-4 text-center text-light">Inserisci i dati per registrare il tuo ristorante!</h1>
             {{-- action="{{ $action }}"= è un segnaposto  --}}
             <form action="{{ route('admin.restaurants.store') }}" class="row g-3" method="POST" enctype="multipart/form-data"
                 onsubmit="return(validate())">

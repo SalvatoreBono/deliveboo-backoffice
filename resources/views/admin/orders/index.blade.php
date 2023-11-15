@@ -60,45 +60,47 @@
         }
     </style>
 
-    <div style="background-color: rgba(0, 0, 0, 0.5)" class="container py-3 card">
-        <h1 class="text-center fw-bold text-uppercase pb-3 text-light">I tuoi ordini</h1>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="title" scope="col">N° Ordini recenti</th>
-                    <th class="title" scope="col">Data e ora dell'ordine</th>
-                    <th class="title" scope="col">Nome</th>
-                    <th class="title" scope="col">Cognome</th>
-                    <th class="title" scope="col">Indirizzo</th>
-                    <th class="title" scope="col">Email</th>
-                    <th class="title" scope="col">Prodotti</th>
-                    <th class="title" scope="col">Prezzo totale</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($orders as $order)
+    <div class="container p-3">
+        <div style="background-color: rgba(0, 0, 0, 0.5)" class="card p-4 shadow rounded-lg ">
+            <h1 class="text-center fw-bold text-uppercase my-4 text-light">I tuoi ordini</h1>
+            <table class="table">
+                <thead>
                     <tr>
-                        <td scope="row">{{ $loop->index + 1 }}</td>
-                        <td>{{ $order['created_at'] }}</td>
-                        <td>{{ $order['customer_name'] }}</td>
-                        <td>{{ $order['customer_surname'] }}</td>
-                        <td>{{ $order['customer_address'] }}</td>
-                        <td>{{ $order['customer_email'] }}</td>
-                        <td>
-                            @foreach ($order['products'] as $product)
-                                <div>
-                                    <span class="card-text">{{ $product['name'] }}</span>
-                                    :
-                                    <span class="card-text">{{ $product['pivot']['quantity'] }}</span>
-                                </div>
-                            @endforeach
-                        </td>
-                        <td>€. {{ $order['total_price'] }}</td>
-                        <td class="d-lg-none" style="height: 50px;"></td>
+                        <th class="title" scope="col">N° Ordini recenti</th>
+                        <th class="title" scope="col">Data e ora dell'ordine</th>
+                        <th class="title" scope="col">Nome</th>
+                        <th class="title" scope="col">Cognome</th>
+                        <th class="title" scope="col">Indirizzo</th>
+                        <th class="title" scope="col">Email</th>
+                        <th class="title" scope="col">Prodotti</th>
+                        <th class="title" scope="col">Prezzo totale</th>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach ($orders as $order)
+                        <tr>
+                            <td scope="row">{{ $loop->index + 1 }}</td>
+                            <td>{{ $order['created_at'] }}</td>
+                            <td>{{ $order['customer_name'] }}</td>
+                            <td>{{ $order['customer_surname'] }}</td>
+                            <td>{{ $order['customer_address'] }}</td>
+                            <td>{{ $order['customer_email'] }}</td>
+                            <td>
+                                @foreach ($order['products'] as $product)
+                                    <div>
+                                        <span class="card-text">{{ $product['name'] }}</span>
+                                        :
+                                        <span class="card-text">{{ $product['pivot']['quantity'] }}</span>
+                                    </div>
+                                @endforeach
+                            </td>
+                            <td>€. {{ $order['total_price'] }}</td>
+                            <td class="d-lg-none" style="height: 50px;"></td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </div>
 
 @endsection
