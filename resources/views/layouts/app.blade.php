@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title')</title>
+    <title>Deliveboo</title>
     <title>{{ config('app.name', 'Laravel') }}</title>
 
 
@@ -18,104 +18,124 @@
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
 </head>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+
+        window.addEventListener("scroll", handleScroll);
+
+        function handleScroll() {
+            const navbar = document.getElementById("myNavbar");
+            if (navbar) {
+                const scrollY = window.scrollY;
+                if (scrollY > 0) {
+                    navbar.style.backgroundColor = "rgba(65, 100, 46, 0.6)";
+                    navbar.querySelectorAll("a").forEach((link) => {
+                        link.style.color = "#dbd5af";
+                    });
+                } else {
+                    navbar.style.backgroundColor = "rgba(255, 255, 255, 0.3)";
+                    navbar.querySelectorAll("a").forEach((link) => {
+                        link.style.color = "black";
+                    });
+                }
+            }
+        }
+    });
+</script>
 
 <body class="container-dash">
     <div id="app">
 
-        <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg" id="myNavbar">
-                <div class="container">
-                    <div>
-                        <a href="http://localhost:5174/"><img style="width: 210px;" src="/img/logo.png"
-                                alt=""></a>
-                    </div>
+        <nav class="navbar navbar-expand-lg" id="myNavbar">
+            <div class="container">
+                <div>
+                    <a href="http://localhost:5174/"><img style="width: 210px;" src="/img/logo.png" alt=""></a>
+                </div>
 
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
 
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <!-- Left Side Of Navbar -->
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <!-- Left Side Of Navbar -->
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a href="http://localhost:5174/" class="px-3 fs-3">Home</a>
+                        </li>
+                    </ul>
+
+                    <!-- Right Side Of Navbar -->
+                    <ul class="navbar-nav ml-auto">
+                        <!-- Authentication Links -->
+                        @guest
                             <li class="nav-item">
-                                <a href="http://localhost:5174/" class="px-3 fs-3">Home</a>
+                                <a class="px-3 fs-3" href="{{ route('login') }}">{{ __('Login') }}</a>
                             </li>
-                        </ul>
-
-                        <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <!-- Authentication Links -->
-                            @guest
+                            @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="px-3 fs-3" href="{{ route('login') }}">{{ __('Login') }}</a>
+                                    <a class="px-3 fs-3" href="{{ route('register') }}">{{ __('Sign in') }}</a>
                                 </li>
-                                @if (Route::has('register'))
-                                    <li class="nav-item">
-                                        <a class="px-3 fs-3" href="{{ route('register') }}">{{ __('Sign in') }}</a>
-                                    </li>
-                                @endif
-                            @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="px-3 fs-3 dropdown-toggle" href="#" role="button"
-                                        data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }}
+                            @endif
+                        @else
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="px-3 fs-3 dropdown-toggle" href="#" role="button"
+                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+
+
+
+                                <div style="left: -110px;" class="dropdown-menu dropdown-menu-right"
+                                    aria-labelledby="navbarDropdown">
+                                    @if (Auth::check() && !Auth::user()->restaurant)
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.restaurants.create') }}">{{ __('Crea il tuo ristorante') }}</a>
+                                    @endif
+                                    @if (Auth::user())
+                                        @if (Auth::check() && Auth::user()->restaurant)
+                                            <a class="dropdown-item"
+                                                href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('Visualizza il tuo ristorante') }}</a>
+                                        @endif
+                                    @endif
+                                    @if (Auth::check() && Auth::user()->restaurant)
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.products.create') }}">{{ __('Aggiungi i tuoi piatti') }}</a>
+                                    @endif
+
+                                    @if (Auth::check() && Auth::user()->restaurant)
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.products.index') }}">{{ __('Guarda tutti i tuoi piatti') }}</a>
+                                    @endif
+
+                                    @if (Auth::check() && Auth::user()->restaurant)
+                                        <a class="dropdown-item"
+                                            href="{{ route('admin.orders.index') }}">{{ __('Visualizza tutti i tuoi ordini') }}</a>
+                                    @endif
+                                    <a class="dropdown-item"
+                                        href="{{ route('dashboard') }}">{{ __('Documentazione') }}</a>
+                                    <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profilo') }}</a>
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
                                     </a>
 
-                                    
-
-                                    <div style="left: -110px;" class="dropdown-menu dropdown-menu-right"
-                                        aria-labelledby="navbarDropdown">
-                                        @if (Auth::check() && !Auth::user()->restaurant)
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.restaurants.create') }}">{{ __('Crea il tuo ristorante') }}</a>
-                                        @endif
-                                        @if (Auth::user())
-                                            @if (Auth::check() && Auth::user()->restaurant)
-                                                <a class="dropdown-item"
-                                                    href="{{ route('admin.restaurants.show', Auth::user()->id) }}">{{ __('Visualizza il tuo ristorante') }}</a>
-                                            @endif
-                                        @endif
-                                        @if (Auth::check() && Auth::user()->restaurant)
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.products.create') }}">{{ __('Aggiungi i tuoi piatti') }}</a>
-                                        @endif
-
-                                        @if (Auth::check() && Auth::user()->restaurant)
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.products.index') }}">{{ __('Guarda tutti i tuoi piatti') }}</a>
-                                        @endif
-
-                                        @if (Auth::check() && Auth::user()->restaurant)
-                                            <a class="dropdown-item"
-                                                href="{{ route('admin.orders.index') }}">{{ __('Visualizza tutti i tuoi ordini') }}</a>
-                                        @endif
-                                        <a class="dropdown-item"
-                                        href="{{ route('dashboard') }}">{{ __('Vai alla dashboard') }}</a>
-                                        <a class="dropdown-item" href="{{ url('admin/profile') }}">{{ __('Profilo') }}</a>
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                            class="d-none">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
-                            @endguest
-                        </ul>
-                    </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
+                        @endguest
+                    </ul>
                 </div>
-            </nav>
+            </div>
+        </nav>
 
-            <main class="">
-                @yield('content')
-            </main>
-        </div>
+        <main style="padding-top: 120px" class="">
+            @yield('content')
+        </main>
     </div>
 </body>
 

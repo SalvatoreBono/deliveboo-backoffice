@@ -8,7 +8,8 @@
                 display: none;
             }
 
-            th, td {
+            th,
+            td {
                 display: block;
                 width: 100%;
             }
@@ -59,8 +60,8 @@
         }
     </style>
 
-    <div class="container py-5">
-        <h1 class="text-center fw-bold text-uppercase pb-3 text-danger">I tuoi ordini</h1>
+    <div style="background-color: rgba(0, 0, 0, 0.5)" class="container py-3 card">
+        <h1 class="text-center fw-bold text-uppercase pb-3 text-light">I tuoi ordini</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -93,7 +94,7 @@
                             @endforeach
                         </td>
                         <td>€. {{ $order['total_price'] }}</td>
-                        <td style="height: 50px;"></td>
+                        <td class="d-lg-none" style="height: 50px;"></td>
                     </tr>
                 @endforeach
             </tbody>

@@ -4,7 +4,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card">
+                <div style="background-color: rgba(0, 0, 0, 0.5)" class="card text-white ">
                     <div class="card-header">{{ __('Login') }}</div>
 
                     <div class="card-body">
@@ -65,7 +65,7 @@
                                     </button>
 
                                     @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        <a class="btn btn-link text-white" href="{{ route('password.request') }}">
                                             {{ __('Forgot Your Password?') }}
                                         </a>
                                     @endif

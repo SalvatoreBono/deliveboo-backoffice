@@ -4,7 +4,7 @@
     <div class="container py-5">
         <h1 class="text-center fw-bold text-uppercase pb-5">Il tuo ristorante</h1>
         <div class="d-flex justify-content-center">
-            <div class="card mb-3" style="max-width: 800px;">
+            <div class="my-card card mb-3" style="max-width: 800px;">
                 <div class="row g-0">
                     <div class="col-md-6">
                         <img src=" {{ asset('storage/' . $restaurant->img) }} " class="card-img-top" alt="...">
@@ -19,9 +19,9 @@
                             <span class="fw-bold">Numero di telefono:</span>
                             <div class="card-text">{{ $restaurant->phone }}</div>
                             <span class="fw-bold">Tipologia del ristorante:</span>
-                            <ul class="p-0 d-flex justify-content-between">
+                            <ul class="p-0 d-flex justify-content-start">
                                 @foreach ($restaurant->types as $type)
-                                    <li>{{ $type->name }}</li>
+                                    <li class="p-2">{{ $type->name }}</li>
                                 @endforeach
                             </ul>
                         </div>
