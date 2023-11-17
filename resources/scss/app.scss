@@ -4,3 +4,31 @@
 @use "partials/header";
 @use "partials/main";
 @use "partials/footer";
+@use "index_products.scss";
+@use "partials/dashboard";
+
+.invalid_feedback {
+    color: red;
+}
+body {
+    font-family: "Kanit", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+.my-card {
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(29, 61, 29, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: #b92026 !important;
+    border-radius: 10px;
+    font-size: 16px;
+    color: white;
+}
+table {
+    --bs-table-bg: transparent !important;
+    --bs-table-color: white !important;
+}
+
