@@ -100,7 +100,7 @@
                                     <div id="error-vat-number" class="invalid_feedback"></div>
                                     @error('VAT_number')
                                         <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
+                                            {{-- <strong>{{ $message }}</strong> --}}
                                         </span>
                                     @enderror
                                 </div>

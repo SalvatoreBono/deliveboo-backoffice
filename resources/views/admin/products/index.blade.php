@@ -38,12 +38,11 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                     aria-label="Close"></button>
                                             </div>
-                                            <div class="modal-body  ">
+                                            <div class="modal-body">
                                                 Sei sicuro di voler eliminare il piatto?
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-success  "
-                                                    data-bs-dismiss="modal">Chiudi</button>
+                                                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Chiudi</button>
                                                 <form action="{{ route('admin.products.destroy', $product->id) }}"
                                                     method="POST">
                                                     @csrf

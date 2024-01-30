@@ -43,8 +43,6 @@ class RestaurantController extends Controller
 
         $restaurant = new Restaurant($data);
 
-
-
         //collega il ristorante appena creato all'utente autenticato.
         $user->restaurant()->save($restaurant);
 
